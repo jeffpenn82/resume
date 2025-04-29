@@ -4,29 +4,267 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            color: #555555;
+        }
+
+        body {
+            height: 100svh;
+            width: 100vw;
+            padding: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        body>header,
+        body>main,
+        body>footer {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        body>header {
+            border-bottom: 1px solid #888888;
+        }
+
+        body>header>h1 {
+            text-align: center;
+        }
+
+        nav>ul {
+            display: flex;
+            gap: 16px;
+            padding: 0 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav>ul>li {
+            padding: 16px 0;
+        }
+
+        nav>ul>li>a {
+            border: 1px solid #888888;
+            border-bottom-width: 0;
+            border-radius: 8px 8px 0 0;
+            padding: 16px;
+            font-weight: bolder;
+            text-decoration: none;
+        }
+
+        nav>ul>li>a:hover {
+            background-color: black;
+            color: white;
+        }
+
+        section#objective,
+        section#certifications,
+        section#skills,
+        section#work-history {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #888888;
+        }
+
+        .skills-groups {
+            display: flex;
+        }
+
+        .skills-groups>article {
+            flex-grow: 1;
+            padding: 0 8px;
+        }
+
+        .skills-groups>article:nth-of-type(2) {
+            border: 1px solid #888888;
+            border-width: 0 1px;
+            padding: 0 16px;
+        }
+
+        .skills-groups>article:first-of-type {
+            padding-left: 0;
+        }
+
+        .skills-groups>article:last-of-type {
+            padding-right: 0;
+        }
+
+        section#work-history>article {
+            display: flex;
+            gap: 16px;
+        }
+
+        section#work-history>article>header {
+            text-align: right;
+            width: 200px;
+        }
+
+        section#work-history ul {
+            list-style: circle;
+            padding: 16px;
+        }
+
+        section>h2 {
+            border-left: 8px solid orange;
+            padding-left: 8px;
+        }
+
+        section#skills h3 {
+            color: teal;
+        }
+
+        footer {
+            padding-bottom: 32px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer>h2 {
+            text-align: center;
+        }
+
+        @media (max-width: 430px) {
+            body>header {
+                border-bottom: none;
+            }
+
+            nav>ul {
+                gap: 8px;
+                flex-direction: column;
+            }
+
+            nav>ul>li {
+                padding: 0;
+            }
+
+            nav>ul>li>a {
+                border: none;
+                padding: 8px;
+                font-weight: bolder;
+                text-decoration: none;
+            }
+
+            nav>ul>li>a:hover {
+                color: #555555;
+                background-color: white;
+            }
+
+            section#work-history>article {
+                flex-direction: column;
+                border-bottom: 2px solid #888888;
+            }
+
+            section#work-history>article:last-of-type {
+                border-bottom: none;
+            }
+
+            section#work-history>article>header {
+                text-align: left;
+            }
+
+            .skills-groups {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .skills-groups>article {
+                border: 0;
+                padding: 0;
+            }
+
+            .skills-groups>article:nth-of-type(2) {
+                border: 0;
+                padding: 0;
+            }
+        }
+
+        @media print {
+            * {
+                border: none !important;
+            }
+
+            nav {
+                display: none;
+            }
+
+            section#work-history>article {
+                break-inside: avoid;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1> Jeff Pennington Resume</h1>
         <nav>
             <ul>
-                <li>Skills</li>
-                <li>Work History</li>
-                <li>Education</li>
-                <li>Objective</li>
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+                <li>
+                    <a href="#work-history">Work History</a>
+                </li>
+                <li>
+                    <a href="#education">Education</a>
+                </li>
+                <li>
+                    <a href="#objective">Objective</a>
+                </li>
             </ul>
         </nav>
     </header>
     <main>
-        <section>
-            <h2>Skills</h2>
-            <h4>Mechanical System Design · Innovative Problem Solving · Technical Documentation · Computer-
-                Aided Design · Multi-Component Assemblies · Sheet Metal · Composites · Design for Manufacturing
-                · Assembly and Integration Planning · Motion and System Clearance · Mold Design · Standards &
-                Template definition · PDM Workflow Development & Utilization · Geometric Dimensioning and
-                Tolerancing (GD&T) - ASME Y14 Standards · CNC Programming · Additive Manufacturing ·
-                Software Proficiency · 3D Design and Prints · Solidworks · PTC Creo · Unigraphics · Fusion 360 ·
-                Master Cam · Cura · Oracle EBS 11i · Microsoft Office Suite · Microsoft Visio · Microsoft Project</h4>
+        <section id="skills">
+            <h2 >Skills</h2>
+            <div class="skills-group">
+                <article>
+                    <ul>
+                        <li>Mechanical System Design</li>
+                        <li>Innovative Problem Solving</li>
+                        <li>Technical Documentation</li>
+                        <li>Computer-Aided Design</li>
+                        <li>Multi-Component Assemblies</li>
+                        <li>Sheet Metal</li>
+                        <li>Composites</li>
+                        <li>Design for Manufacturing</li>
+                        <li>Assembly and Integration Planning</li>
+                        <li>Motion and System Clearance</li>
+                        <li>Mold Design</li>
+                        <li>Standards & Template definition</li>
+                        <li>PDM Workflow Development & Utilization</li>
+                        <li>Geometric Dimensioning and Tolerancing (GD&T)/li>
+                        <li>ASME Y14 Standards</li>
+                        <li>CNC Programming</li>
+                        <li>Additive Manufacturing</li>
+                        <li>Solidworks</li>
+                        <li>PTC Creo</li>
+                        <li>Unigraphics</li>
+                        <li>Fusion 360</li>
+                        <li>Master Cam</li>
+                        <li></li>
+                    </ul>
+                </article>
+            </div>
+
         </section>
         <section>
             <h2>Work History</h2>
